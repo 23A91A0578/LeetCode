@@ -1,0 +1,20 @@
+class Solution {
+    public boolean judgeSquareSum(int c) {
+       double left=0;
+       double re=Math.sqrt(c);
+       double right=Math.ceil(re);
+       while(left<=right){
+        double sum=(left*left)+(right*right);
+        if(sum==c){
+            return true;
+        }
+        else if(sum<c){
+            left++;
+        }
+        else{
+            right--;
+        }
+       }
+       return false;
+    }
+}
