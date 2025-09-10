@@ -1,0 +1,18 @@
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode tempL=head; //To find the length
+        ListNode tempOut=head; //To traverse to midde of LL
+        //Here we taken l=0 because when l is at end node it is not equal to null so it increments extra one value
+        int l=0;
+        while(tempL!=null){
+            tempL=tempL.next;
+            l=l+1;
+        }
+        int r=1;
+        while(r<=l/2){
+            tempOut=tempOut.next;
+            r=r+1;
+        }
+        return tempOut;
+    }
+}
