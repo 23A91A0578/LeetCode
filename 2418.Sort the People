@@ -1,0 +1,14 @@
+import java.util.*;
+class Solution {
+    public String[] sortPeople(String[] names, int[] heights) {
+       Hashtable<Integer,String> ht=new Hashtable<>();
+        for(int i=0;i<names.length;i++){
+            ht.put(heights[i],names[i]);
+        } 
+        TreeMap<Integer,String> map=new TreeMap<>(Collections.reverseOrder());
+        map.putAll(ht);
+        String[] s=map.values().toArray(new String[0]);
+        Arrays.toString(s);
+        return s;
+    }
+}
