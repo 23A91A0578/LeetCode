@@ -1,0 +1,23 @@
+import java.util.*;
+class Solution {
+    public int maxFreqSum(String s) {
+        Set<Character> vowels = new HashSet<>(Arrays.asList('a','e','i','o','u'));
+        Hashtable<Character,Integer> htv=new Hashtable<>();
+        Hashtable<Character,Integer> htc=new Hashtable<>();
+        int maxV=0;
+        int maxC=0;
+        for(char c:s.toCharArray()){
+            if(vowels.contains(c)){
+                int freq=htv.getOrDefault(c,0)+1;
+                htv.put(c,htv.getOrDefault(c,0)+1);
+                maxV=Math.max(maxV,freq);
+            }
+            else{
+                int freqC=htc.getOrDefault(c,0)+1;
+                htc.put(c,htc.getOrDefault(c,0)+1);
+               maxC= Math.max(maxC,freqC);
+            }
+        }
+        return maxV+maxC;
+    }
+}
