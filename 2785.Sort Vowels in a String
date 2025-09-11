@@ -1,0 +1,30 @@
+class Solution {
+    public boolean isVowel(char ch) {
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'A' || ch == 'I' || ch == 'E'
+                || ch == 'O' || ch == 'U') {
+            return true;
+        }
+        return false;
+    }
+
+    public String sortVowels(String s) {
+        ArrayList<Character> list = new ArrayList<>();
+        for (char c : s.toCharArray()) {
+            if (isVowel(c)) {
+                list.add(c);
+            }
+        }
+        Collections.sort(list);
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        for (char c : s.toCharArray()) {
+            if (isVowel(c)) {
+                sb.append(list.get(i));
+                i = i + 1;
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+}
