@@ -1,0 +1,16 @@
+import java.util.Hashtable;
+class Solution {
+    public int reverseDegree(String s) {
+        Hashtable<Character,Integer> letters=new Hashtable<>();
+        int i=26;
+        for(char c='a';c<='z';c++){
+            letters.put(c,i);
+            i=i-1;
+        }
+        int sum=0;
+        for(int j=0;j<s.length();j++){
+            sum=sum+(letters.get(s.charAt(j))*(j+1));
+        }
+        return sum;
+    }
+}
