@@ -1,0 +1,24 @@
+class Solution {
+    public boolean isVowel(char i){
+        if(i=='a' || i=='e' || i=='i' || i=='o' || i=='u' || i=='A' || i=='E' || i=='I' || i=='O' || i=='U'){
+            return true;
+        }
+        return false;
+    }
+    public boolean halvesAreAlike(String s) {
+        int c1=0;
+        for(int i=0;i<s.length()/2;i++){
+            if(isVowel(s.charAt(i))){
+                c1=c1+1;
+            }
+        }
+        int c2=0;
+        for(int j=s.length()/2;j<s.length();j++){
+            if(isVowel(s.charAt(j))){
+                c2=c2+1;
+            }
+        }
+        return c1==c2;
+
+    }
+}
