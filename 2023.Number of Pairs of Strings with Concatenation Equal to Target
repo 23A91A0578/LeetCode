@@ -1,0 +1,16 @@
+class Solution {
+    public int numOfPairs(String[] nums, String target) {
+        int c=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i].length()>target.length() || !target.startsWith(nums[i])){
+                continue;
+            }
+            for(int j=0;j<nums.length;j++){
+                if(j!=i && target.equals(nums[i]+nums[j])){
+                    c++;
+                }
+            }
+        }
+        return c;
+    }
+}
