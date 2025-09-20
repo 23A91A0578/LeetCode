@@ -1,0 +1,16 @@
+class Solution {
+    public boolean areOccurrencesEqual(String s) {
+        HashMap<Character,Integer> res=new HashMap<>();
+        for(char i:s.toCharArray()){
+            res.put(i,res.getOrDefault(i,0)+1);
+        }
+        Set<Integer> set=new HashSet();
+        for(char i:res.keySet()){
+            set.add(res.get(i));
+        }
+        if(set.size()==1){
+            return true;
+        }
+        return false;
+    }
+}
