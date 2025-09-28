@@ -1,0 +1,20 @@
+// import java.util.HashTable;
+class Solution {
+
+    public int countWords(String[] words1, String[] words2) {
+        HashMap<String,Integer> ht=new HashMap<>();
+        for(String i:words1){
+            ht.put(i,ht.getOrDefault(i,0)+1);
+        }
+        for(String j:words2){
+            ht.put(j,ht.getOrDefault(j,0)+1);
+        }
+        int c=0;
+        for(String i:ht.keySet()){
+            if(ht.get(i)==2 && Arrays.asList(words1).contains(i) && Arrays.asList(words2).contains(i)){
+                c=c+1;
+            }
+        }
+        return c;
+    }
+}
