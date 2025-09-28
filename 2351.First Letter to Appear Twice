@@ -1,0 +1,11 @@
+class Solution {
+    public char repeatedCharacter(String s) {
+        HashSet<Character> ht=new HashSet<>();
+        for(char i:s.toCharArray()){
+            if(!ht.add(i)){
+                return i;
+            }
+        } 
+        return 'a';
+    }
+}
