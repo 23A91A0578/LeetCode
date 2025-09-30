@@ -1,0 +1,26 @@
+class Solution {
+    public boolean inRow(String s, String row){
+        for(char c:s.toCharArray()){
+            if(!row.contains(String.valueOf(c))){
+                return false;
+            }
+        }
+        return true;
+    }
+    public String[] findWords(String[] words) {
+        String r1="qwertyuiop";
+        String r2="asdfghjkl";
+        String r3="zxcvbnm";
+        // Set<Character> row1=new HashSet<>("qwertyuiop");
+        // Set<Character> row2=new HashSet<>("");
+        // Set<Character> row1=new HashSet<>("qwertyuiop");
+        ArrayList<String> l=new ArrayList<>();
+        for(String s:words){
+            String sl=s.toLowerCase();
+            if(inRow(sl,r1) || inRow(sl,r2) || inRow(sl,r3)){
+                l.add(s);
+            }
+        }
+        return l.toArray(new String [0]);
+    }
+}
