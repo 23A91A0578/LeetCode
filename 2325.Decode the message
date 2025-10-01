@@ -1,0 +1,21 @@
+class Solution {
+    public String decodeMessage(String key, String message) {
+        HashMap<Character,Character> hm=new HashMap<>();
+        String s="abcdefghijklmnopqrstuvwxyz";
+        int k=0;
+        for(int i=0;i<key.length();i++){
+            if(!hm.containsKey(key.charAt(i)) && key.charAt(i)!=' '){
+                hm.put(key.charAt(i),s.charAt(k));
+                k++;
+            }
+            else{
+                continue;
+            }
+        }
+        StringBuffer sb=new StringBuffer();
+        for(int j=0;j<message.length();j++){
+            sb.append(hm.getOrDefault(message.charAt(j),' '));
+        }
+        return sb.toString();
+    }
+}
