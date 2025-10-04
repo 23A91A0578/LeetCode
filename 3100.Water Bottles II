@@ -1,0 +1,14 @@
+class Solution {
+    public int maxBottlesDrunk(int numBottles, int numExchange) {
+        int drinkedbottles = numBottles;
+        int empty = numBottles;
+        while (empty >= numExchange) {
+            int filled = 1; // only one exchange per round
+            empty -= numExchange;
+            drinkedbottles = drinkedbottles+filled;
+            empty =empty+ filled; 
+            numExchange++;
+        }
+        return drinkedbottles;
+    }
+}
