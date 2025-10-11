@@ -1,0 +1,22 @@
+class Solution {
+    public int[][] mergeArrays(int[][] nums1, int[][] nums2) {
+        TreeMap<Integer,Integer> hs=new TreeMap<>();
+        for(int num[]:nums1){
+            hs.put(num[0],num[1]);
+        }
+        for(int num2[]:nums2){
+            hs.put(num2[0],hs.getOrDefault(num2[0],0)+num2[1]);
+        }
+         List<int[]> mergedList = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : hs.entrySet()) {
+            mergedList.add(new int[] { entry.getKey(), entry.getValue() });
+        }
+        int[][] mergedArray = new int[mergedList.size()][2];
+        for (int i = 0; i < mergedList.size(); i++) {
+            mergedArray[i] = mergedList.get(i);
+        }
+
+        return mergedArray;
+    }
+
+}
