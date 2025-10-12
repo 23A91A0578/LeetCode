@@ -1,0 +1,16 @@
+class Solution {
+    public int sumDivisibleByK(int[] nums, int k) {
+        HashMap<Integer,Integer> hs=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            hs.put(nums[i],hs.getOrDefault(nums[i],0)+1);
+            
+        }
+        int s=0;
+        for(Map.Entry<Integer,Integer> entry : hs.entrySet()){
+            if(entry.getValue()%k==0){
+                s=s+(entry.getKey()*entry.getValue());
+            }
+        }
+        return s;
+    }
+}
