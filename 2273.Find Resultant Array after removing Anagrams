@@ -1,0 +1,19 @@
+class Solution {
+    public boolean isAnagram(String s1,String s2){
+        char[] ch1=s1.toCharArray();
+        char[] ch2=s2.toCharArray();
+        Arrays.sort(ch1);
+        Arrays.sort(ch2);
+        return Arrays.equals(ch1,ch2);
+    }
+    public List<String> removeAnagrams(String[] words) {
+        ArrayList<String> l=new ArrayList<>();
+        l.add(words[0]);
+        for(int i=0;i<words.length-1;i++){
+            if(!isAnagram(words[i],words[i+1])){
+                l.add(words[i+1]);
+            }
+        }
+        return l;
+    }
+}
