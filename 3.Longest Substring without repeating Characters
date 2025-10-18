@@ -10,7 +10,7 @@ class Solution {
                 l++;
             }
             hs.add(s.charAt(r));
-            maxlen=Math.max(hs.size(),maxlen);
+            maxlen=Math.max(r-i+1,maxlen);
         }
         return maxlen;
     }
