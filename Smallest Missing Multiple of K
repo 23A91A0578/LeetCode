@@ -1,0 +1,16 @@
+class Solution {
+    public int missingMultiple(int[] nums, int k) {
+        int h=0;
+        HashSet<Integer> hs= new HashSet<>();
+        for(int i=0;i<nums.length;i++){
+            hs.add(nums[i]);
+        }
+        for(int j=k;;j++){
+            if(j%k==0 && !hs.contains(j)){
+                h=j;
+                break;
+            }
+        }
+        return h;
+    }
+}©leetcode
