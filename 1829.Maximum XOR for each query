@@ -1,0 +1,21 @@
+class Solution {
+    public int[] getMaximumXor(int[] nums, int maximumBit) {
+        int n=nums.length;
+        double m=Math.pow(2,maximumBit)-1;
+        int[] prexor=new int[n];
+        prexor[0]=nums[0];
+        for(int i=1;i<n;i++){
+            prexor[i]=prexor[i-1]^nums[i];
+        }
+        for(int i=n-1;i>=0;i--){
+            prexor[i]=prexor[i]^(int)m;
+        }
+        for(int i=0;i<n/2;i++){
+            int temp=prexor[i];
+            prexor[i]=prexor[n-i-1];
+            prexor[n-i-1]=temp;
+            
+        }
+        return prexor;
+    }
+}
